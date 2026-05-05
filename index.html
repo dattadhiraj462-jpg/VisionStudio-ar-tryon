@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionStudio AR | Powered by Aura</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="login-screen">
+    <div class="login-card">
+        <div style="background: var(--primary); width: 64px; height: 64px; border-radius: 22px; display: grid; place-items: center; margin: 0 auto 25px;">
+            <i data-lucide="sparkles" color="white" size="30"></i>
+        </div>
+        <h2 style="margin-bottom: 8px; font-weight: 800; letter-spacing: -1px;">VisionStudio AR</h2>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px;">Meet Aura, your style concierge</p>
+        <input type="text" id="userInput" placeholder="Full Name" onkeydown="if(event.key === 'Enter') handleEntry()">
+        <input type="password" id="passInput" placeholder="Password" onkeydown="if(event.key === 'Enter') handleEntry()">
+        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="handleEntry()">Start Fitting</button>
+    </div>
+</div>
+
+<header>
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <i data-lucide="aperture" color="#8b5cf6"></i>
+        <span style="font-weight: 800; font-size: 1.4rem; letter-spacing: -1px;">VISIONSTUDIO<span style="color:var(--accent)">AR</span></span>
+    </div>
+    <div id="userDisplay" class="user-pill" style="display:none">
+        <i data-lucide="user" size="14" style="margin-right:8px"></i> <span id="nameTarget"></span>
+    </div>
+</header>
+
+<div class="main-container">
+    <div class="sidebar-frames" id="frameList"></div>
+
+    <div class="viewport">
+        <div class="ar-frame">
+            <video id="video" autoplay muted playsinline class="mirror"></video>
+            <canvas id="overlay" class="mirror"></canvas>
+        </div>
+        <div style="position: absolute; bottom: 40px; display: flex; gap: 15px;">
+            <button class="btn" style="background:rgba(255,255,255,0.1); color:white; backdrop-filter:blur(10px);" onclick="toggleMirror()"><i data-lucide="refresh-cw"></i></button>
+            <button class="btn btn-primary" onclick="capture()"><i data-lucide="camera"></i> Save Snapshot</button>
+        </div>
+    </div>
+
+    <div class="sidebar-chat">
+        <div style="padding: 20px; font-weight: 800; font-size: 11px; letter-spacing: 1px; color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.05);">AURA | STYLE SPECIALIST</div>
+        <div class="chat-area" id="chatArea">
+            <div class="bubble ai">Hello! I'm Aura. I've curated our finest collection for you today. Shall I suggest some frames to get started?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Talk to Aura..." style="margin:0;" onkeydown="if(event.key === 'Enter') handleChat()">
+            <button class="btn btn-primary" style="padding: 12px;" onclick="handleChat()"><i data-lucide="send"></i></button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
