@@ -1,6 +1,8 @@
 # VisionStudio-ar-tryon
 An immersive Augmented Reality (AR) web application that allows users to try on designer eyewear in real-time. Powered by Face-API.js for high-precision facial landmark tracking and Aura, an integrated AI style concierge that provides personalized frame recommendations via a chat interface.
+
 1.Key Features
+
 .Real-Time AR Overlay: Uses computer vision to track 68 facial points and anchor 2D/3D-styled glasses to the user's face.
 
 .Aura AI Style Assistant: A smart sidebar chat that suggests frames based on user preference and "analyzes" style choices.
