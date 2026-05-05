@@ -14,6 +14,7 @@ An immersive Augmented Reality (AR) web application that allows users to try on 
 .Fully Responsive: Designed with a modern, glassmorphic UI using Tailwind-inspired custom CSS.
 
 2.Tech Stack
+
 .Frontend: HTML5, CSS3 (Custom Variables/Properties), JavaScript (ES6+)
 
 .AI/ML: Face-API.js (TensorFlow.js backend)
